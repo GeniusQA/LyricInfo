@@ -15,6 +15,7 @@ import com.lidesheng.lyricinfo.providers.qqmusic.QQMusicProvider
 import com.lidesheng.lyricinfo.providers.saltplayer.SaltPlayerProvider
 import com.lidesheng.lyricinfo.providers.miuiplayer.MiuiPlayerProvider
 import com.lidesheng.lyricinfo.providers.kugou.KugouProvider
+import com.lidesheng.lyricinfo.providers.spotify.SpotifyProvider
 
 class HookEntry : XposedModule() {
 
@@ -29,7 +30,8 @@ class HookEntry : XposedModule() {
             MiuiPlayerProvider(),
             KugouProvider(),
             LxMusicProvider(),
-            IKunMusicProvider()
+            IKunMusicProvider(),
+            SpotifyProvider()
         )
     }
 

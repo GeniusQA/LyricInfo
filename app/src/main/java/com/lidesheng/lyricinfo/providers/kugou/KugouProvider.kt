@@ -41,7 +41,11 @@ class KugouProvider : BaseLyricProvider() {
     }
 
     override val packageName = PACKAGE_NAME
-    override val processNames = listOf(PACKAGE_NAME, "$PACKAGE_NAME:kugou_service")
+    // 酷狗概念版（com.kugou.android.lite）与正式版同 SDK、同内部类
+    // （com.kugou.common.* / com.kugou.framework.*），仅包名不同。
+    // 进程名用 startsWith 前缀匹配，直接扩进前缀即可覆盖其主进程与各类 service 进程。
+    override val packageNames = listOf("com.kugou.android", "com.kugou.android.lite")
+    override val processNames = listOf("com.kugou.android", "com.kugou.android.lite")
 
     private data class KugouTrack(
         val identity: String,
